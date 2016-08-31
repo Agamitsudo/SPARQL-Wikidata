@@ -1,0 +1,20 @@
+#streets in Aiglun
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT DISTINCT ?item ?itemLabel ?typeLabel ?longueur ?largeur ?aire ?image ?coord WHERE {
+  ?item wdt:P31/wdt:P279* wd:Q83620 . #les sous-classes de voie de communication (dont les rues, places, etc.)
+  ?item wdt:P131 wd:Q404474 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+
+  OPTIONAL { 
+    ?item wdt:P31 ?type . 
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". } 
+  }     
+  OPTIONAL { ?item wdt:P2043 ?longueur . }
+  OPTIONAL { ?item wdt:P2049 ?largeur . }
+  OPTIONAL { ?item wdt:P2046 ?aire . }  
+  OPTIONAL { ?item wdt:P18 ?image . } 
+  OPTIONAL { ?item wdt:P625 ?coord . }      
+
+} ORDER BY ?itemLabel
