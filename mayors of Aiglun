@@ -1,0 +1,17 @@
+#mayors of Aiglun
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX v: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+
+SELECT DISTINCT ?item ?itemLabel ?deb ?fin
+WHERE {
+  ?item wdt:P31 wd:Q5 .
+  ?item p:P39 ?d .
+  ?d v:P39 wd:Q30185 .  
+  ?d pq:P642 wd:Q404474 .
+  
+  ?d pq:P580 ?deb .
+  OPTIONAL { ?d pq:P582 ?fin . }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+} ORDER BY ?deb
