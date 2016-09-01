@@ -3,15 +3,19 @@ PREFIX p: <http://www.wikidata.org/prop/>
 PREFIX v: <http://www.wikidata.org/prop/statement/>
 PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 
-SELECT DISTINCT ?item ?itemLabel ?deb ?fin
+SELECT DISTINCT ?item ?itemLabel ?debut ?fin (year(?dateNaissance) as ?anneeNaissance) ?lieuNaissanceLabel ?nomNaissance
 WHERE {
   ?item wdt:P31 wd:Q5 .
   ?item p:P39 ?d .
   ?d v:P39 wd:Q30185 .  
   ?d pq:P642 wd:Q404474 .
   
-  ?d pq:P580 ?deb .
+  OPTIONAL { ?item wdt:P569 ?dateNaissance . }
+  OPTIONAL { ?item wdt:P19 ?lieuNaissance . }
+  OPTIONAL { ?item wdt:P1477 ?nomNaissance . }  
+  
+  OPTIONAL { ?d pq:P580 ?debut . }
   OPTIONAL { ?d pq:P582 ?fin . }
 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
-} ORDER BY ?deb
+} ORDER BY ?debut
