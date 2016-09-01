@@ -3,7 +3,7 @@ PREFIX p: <http://www.wikidata.org/prop/>
 PREFIX v: <http://www.wikidata.org/prop/statement/>
 PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 
-SELECT DISTINCT ?item ?itemLabel ?debut ?fin (year(?dateNaissance) as ?anneeNaissance) ?lieuNaissanceLabel ?nomNaissance
+SELECT DISTINCT ?item ?itemLabel (year(?debut) as ?debutMandat) (year(?fin) as ?finMandat) (year(?dateNaissance) as ?anneeNaissance) ?lieuNaissanceLabel ?nomNaissance
 WHERE {
   ?item wdt:P31 wd:Q5 .
   ?item p:P39 ?d .
@@ -18,4 +18,4 @@ WHERE {
   OPTIONAL { ?d pq:P582 ?fin . }
 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
-} ORDER BY ?debut
+} ORDER BY ?debutMandat
