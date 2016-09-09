@@ -19,12 +19,10 @@ WHERE {
   OPTIONAL{
     ?item wdt:P610 ?culminant  .
     ?culminant wdt:P2044 ?altitude  .  
-	?culminant p:P625 ?coordinate .
-
-    ?coordinate psv:P625 ?coordinate_node .
-    
-    ?coordinate_node wikibase:geoLatitude ?lat .
-    ?coordinate_node wikibase:geoLongitude ?lon .
+    OPTIONAL{ ?culminant p:P625 ?coordinate . 
+    ?coordinate psv:P625 ?coordinate_node . 
+    ?coordinate_node wikibase:geoLatitude ?lat .  
+    ?coordinate_node wikibase:geoLongitude ?lon . }
   }  
 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
