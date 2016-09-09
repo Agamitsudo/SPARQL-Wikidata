@@ -1,4 +1,4 @@
-# Point culminant par département français
+# Points culminants par département français
 
 PREFIX wd: <http://www.wikidata.org/entity/> 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -13,6 +13,8 @@ WHERE {
 
   ?item wdt:P31/wdt:P279* wd:Q6465 .
   ?item p:P31 ?dep .
+  FILTER NOT EXISTS { ?item p:P576 ?x } 
+  FILTER NOT EXISTS { ?item p:P582 ?x } 
   FILTER NOT EXISTS { ?dep pq:P582 ?x }  
   OPTIONAL{
     ?item wdt:P610 ?culminant  .
