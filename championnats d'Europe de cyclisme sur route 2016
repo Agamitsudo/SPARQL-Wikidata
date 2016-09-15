@@ -30,8 +30,6 @@ WHERE {
   OPTIONAL { ?item wdt:P2094 ?categorie . }
   ?item wdt:P585  ?date .
   ?item wdt:P2043 ?distance .
-
-  OPTIONAL { ?item p:P1346 [ pq:P642 ?vainqueur ]. }
  
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
   
