@@ -1,0 +1,38 @@
+# championnats d'Europe de cyclisme sur route 2016
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#defaultView:ImageGrid
+SELECT DISTINCT ?item ?itemLabel ?categorieLabel ?date ?distance 
+				?vainqueur ?vainqueurLabel ?nation1Label ?image1
+				?second ?secondLabel ?nation2Label ?image2
+				?troisieme ?troisiemeLabel ?nation3Label ?image3
+WHERE {
+	
+  { ?item wdt:P31/wdt:P279* wd:Q2266066 . } #contre-la-montre
+  UNION
+  { ?item wdt:P31/wdt:P279* wd:Q2912397. } #course d'un jour
+
+  ?item wdt:P361 wd:Q23043007 . # championnats d'Europe de cyclisme sur route 2016
+  ?item p:P1346 [ ps:P1346 ?vainqueur; pq:P642 wd:Q20882667 ].
+  	OPTIONAL { ?vainqueur wdt:P27 ?nation1}.  
+  	OPTIONAL { ?vainqueur wdt:P18 ?image}.
+  ?item p:P1346 [ ps:P1346 ?second; pq:P642 wd:Q20882668 ].
+  	OPTIONAL { ?second wdt:P27 ?nation2}.  
+  	OPTIONAL { ?second wdt:P18 ?image2}.
+  ?item p:P1346 [ ps:P1346 ?troisieme; pq:P642 wd:Q20882669 ].
+  	OPTIONAL { ?troisieme wdt:P27 ?nation3}.  
+  	OPTIONAL { ?troisieme wdt:P18 ?image3}.
+  OPTIONAL { ?item wdt:P2094 ?categorie . }
+  ?item wdt:P585  ?date .
+  ?item wdt:P2043 ?distance .
+
+  OPTIONAL { ?item p:P1346 [ pq:P642 ?vainqueur ]. }
+ 
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+  
+} ORDER BY DESC(?altitude)
