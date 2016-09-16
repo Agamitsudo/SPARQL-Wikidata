@@ -30,7 +30,7 @@ WHERE {
   OPTIONAL { ?item wdt:P2094 ?categorie . }
   ?item wdt:P585  ?date .
   ?item wdt:P2043 ?distance .
- 
+
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
   
-} ORDER BY DESC(?altitude)
+} ORDER BY DESC(?date)
