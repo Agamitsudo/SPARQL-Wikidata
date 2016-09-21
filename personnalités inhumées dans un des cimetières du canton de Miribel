@@ -1,0 +1,36 @@
+# personnalités inhumées dans un des cimetières du canton de Miribel 
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?item ?itemLabel ?lieu ?lieuLabel ?image
+
+WHERE {
+	
+  ?item wdt:P31/wdt:P279* wd:Q5 . #humain
+  
+  ?item wdt:P119 ?lieu . #lieu de sépulture
+  
+  ?lieu wdt:P31/wdt:P279* wd:Q39614 . # lieu de sépulture est un cimetière.
+
+  { ?lieu wdt:P131 wd:Q363180 . } # lieu de sépulture est situé à Thil.
+  UNION
+  { ?lieu wdt:P131 wd:Q11981 . } # lieu de sépulture est situé à Saint-Maurice-de-Beynost.
+  UNION
+  { ?lieu wdt:P131 wd:Q10235 . } # lieu de sépulture est situé à Beynost.
+  UNION
+  { ?lieu wdt:P131 wd:Q363100 . } # lieu de sépulture est situé à Miribel.
+  UNION
+  { ?lieu wdt:P131 wd:Q363159 . } # lieu de sépulture est situé à Neyron.
+  UNION
+  { ?lieu wdt:P131 wd:Q648148 . } # lieu de sépulture est situé à Tramoyes.
+  
+  OPTIONAL{ ?item wdt:P1442 ?image . }
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+  
+} ORDER BY DESC(?lieuLabel)
