@@ -1,4 +1,4 @@
-# personnalités inhumées dans un des cimetières du canton de Miribel 
+# personnalités enterrées dans un des cimetières des cantons de Miribel et de Meximieux 
 PREFIX wd: <http://www.wikidata.org/entity/> 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
@@ -17,17 +17,11 @@ WHERE {
   
   ?lieu wdt:P31/wdt:P279* wd:Q39614 . # lieu de sépulture est un cimetière.
 
-  { ?lieu wdt:P131 wd:Q363180 . } # lieu de sépulture est situé à Thil.
+  ?lieu wdt:P131 ?commune .
+  ?commune wdt:P31/wdt:P279* wd:Q484170 . # c'est bien une commune.
+  { ?commune wdt:P131 wd:Q735692 . } # elle est dans le canton de Miribel.
   UNION
-  { ?lieu wdt:P131 wd:Q11981 . } # lieu de sépulture est situé à Saint-Maurice-de-Beynost.
-  UNION
-  { ?lieu wdt:P131 wd:Q10235 . } # lieu de sépulture est situé à Beynost.
-  UNION
-  { ?lieu wdt:P131 wd:Q363100 . } # lieu de sépulture est situé à Miribel.
-  UNION
-  { ?lieu wdt:P131 wd:Q363159 . } # lieu de sépulture est situé à Neyron.
-  UNION
-  { ?lieu wdt:P131 wd:Q648148 . } # lieu de sépulture est situé à Tramoyes.
+  { ?commune wdt:P131 wd:Q1553619 . } # ou dans le canton de Meximieux.
   
   OPTIONAL{ ?item wdt:P1442 ?image . }
   
