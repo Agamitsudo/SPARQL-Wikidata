@@ -1,0 +1,26 @@
+# State of the Map
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?item ?itemLabel ?paysLabel ?villeLabel ?lieuLabel  ?deb ?fin ?precLabel ?suivLabel
+
+WHERE {
+	
+  ?item wdt:P31/wdt:P279* wd:Q26995804 . #State of the Map
+  
+  OPTIONAL{ ?item wdt:P276 ?lieu . }
+  OPTIONAL{ ?item wdt:P131 ?ville . }
+  OPTIONAL{ ?item wdt:P17 ?pays . }
+  OPTIONAL{ ?item wdt:P580 ?deb . }
+  OPTIONAL{ ?item wdt:P582 ?fin . }
+  OPTIONAL{ ?item wdt:P155 ?prec . }
+  OPTIONAL{ ?item wdt:P156 ?suiv . }
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+  
+} ORDER BY DESC(?lieuLabel)
