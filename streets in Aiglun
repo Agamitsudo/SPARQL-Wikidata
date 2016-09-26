@@ -7,10 +7,7 @@ SELECT DISTINCT ?item ?itemLabel ?typeLabel ?longueur ?largeur ?aire ?image ?coo
   ?item wdt:P131 wd:Q404474 .
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
 
-  OPTIONAL { 
-    ?item wdt:P31 ?type . 
-    SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". } 
-  }     
+  OPTIONAL { ?item wdt:P31 ?type . }     
   OPTIONAL { ?item wdt:P2043 ?longueur . }
   OPTIONAL { ?item wdt:P2049 ?largeur . }
   OPTIONAL { ?item wdt:P2046 ?aire . }  
