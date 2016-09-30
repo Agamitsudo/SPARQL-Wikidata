@@ -1,0 +1,10 @@
+#Fusillés du Mont Valérien
+
+SELECT DISTINCT ?item ?itemLabel ?deces
+WHERE {
+  ?item wdt:P31 wd:Q5 .
+  ?item wdt:P361 wd:Q3091179 .
+  OPTIONAL { ?item wdt:P570 ?deces . }     
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+} ORDER BY ?deces
