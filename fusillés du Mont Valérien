@@ -1,9 +1,11 @@
 #Fusillés du Mont Valérien
 
-SELECT DISTINCT ?item ?itemLabel ?deces ?lieudecesLabel ?genreLabel
+SELECT DISTINCT ?item ?itemLabel ?naissance ?lieuNaissanceLabel ?deces ?lieudecesLabel ?genreLabel
 WHERE {
   ?item wdt:P31 wd:Q5 .
   ?item wdt:P361 wd:Q3091179 .
+  OPTIONAL { ?item wdt:P569 ?naissance . }
+  OPTIONAL { ?item wdt:P19 ?lieuNaissance . }
   OPTIONAL { ?item wdt:P570 ?deces . }
   OPTIONAL { ?item wdt:P20 ?lieudeces . }
   OPTIONAL { ?item wdt:P21 ?genre .}
