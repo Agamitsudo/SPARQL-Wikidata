@@ -7,4 +7,4 @@
 * personnalités enterrées dans un des cimetières des cantons de Miribel et de Meximieux : http://tinyurl.com/jtkpq5f
 * State of the Map: http://tinyurl.com/hhqmab4
 * voies à Lyon : http://tinyurl.com/jqdnh54
-* fusillés du Mont Valérien : http://tinyurl.com/hfnfxrq
+* fusillés du Mont Valérien : http://tinyurl.com/gndnpnx
