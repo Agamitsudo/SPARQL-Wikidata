@@ -1,14 +1,16 @@
 #Fusillés du Mont Valérien
 
-SELECT DISTINCT ?item ?itemLabel ?naissance ?lieuNaissanceLabel ?deces ?lieudecesLabel ?genreLabel
+#defaultView:Map
+SELECT DISTINCT ?item ?itemLabel ?naissance ?coord ?lieuNaissanceLabel ?deces ?lieudecesLabel ?genreLabel
 WHERE {
   ?item wdt:P31 wd:Q5 .
   ?item wdt:P361 wd:Q3091179 .
-  OPTIONAL { ?item wdt:P569 ?naissance . }
-  OPTIONAL { ?item wdt:P19 ?lieuNaissance . }
-  OPTIONAL { ?item wdt:P570 ?deces . }
-  OPTIONAL { ?item wdt:P20 ?lieudeces . }
-  OPTIONAL { ?item wdt:P21 ?genre .}
+  ?item wdt:P19 ?lieuNaissance .
+  ?lieuNaissance wdt:P625 ?coord .
+  ?item wdt:P569 ?naissance .
+  ?item wdt:P570 ?deces .
+  ?item wdt:P20 ?lieudeces .	
+  ?item wdt:P21 ?genre .
   
   SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
 } ORDER BY ?deces
