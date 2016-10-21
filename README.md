@@ -10,3 +10,4 @@
 * fusillés du Mont Valérien : http://tinyurl.com/glawxgs
 * maires de Montreuil-en-Touraine : http://tinyurl.com/hddjaa9
 * Communes (second niveau administratif) du Burundi : http://tinyurl.com/htm47gs
+* maires de Beynost : http://tinyurl.com/hyc6wnx
