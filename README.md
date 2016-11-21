@@ -12,3 +12,4 @@
 * Communes (second niveau administratif) du Burundi : http://tinyurl.com/htm47gs
 * maires de Beynost : http://tinyurl.com/zhky7q2
 * les 22 fusillés du 12 juin 1944 à Dagneux (un survivant) : http://tinyurl.com/hogy7qx
+* cimetière XRousse : http://tinyurl.com/jn2j3wp
