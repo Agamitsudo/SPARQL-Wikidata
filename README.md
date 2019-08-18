@@ -1,4 +1,4 @@
-# SPARQL-Wikidata
+Des requêtes SPARQL en pagaille que je stocke ici.
 
 * maires d'Aiglun : http://tinyurl.com/gw3xcnl
 * voies à Aiglun : http://tinyurl.com/zocpkcs
